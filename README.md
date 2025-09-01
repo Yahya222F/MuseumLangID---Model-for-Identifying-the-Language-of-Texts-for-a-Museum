@@ -17,7 +17,7 @@ Questo repository contiene un progetto di **Language Identification** per classi
 
 ---
 
-## 🏗️ Architettura della soluzione
+## Architettura della soluzione
 1. **Import & Config**
    - Librerie: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`.
    - Costanti: `RANDOM_SEED` (riproducibilità), `BASE_PATH` (sorgente dati).
@@ -56,7 +56,7 @@ Questo repository contiene un progetto di **Language Identification** per classi
 
 ---
 
-## ▶️ Come eseguire
+## Come eseguire
 ### Prerequisiti
 - **Python 3.10+**
 - Pacchetti: `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `seaborn`
@@ -83,7 +83,7 @@ Apri `nome_notebook.ipynb` con Jupyter/VS Code e riesegui tutte le celle.
 
 ---
 
-## 📊 Output principali
+## Output principali
 - **Report di classificazione** (per classe e macro/micro average)
 - **Matrice di confusione (train/test)** per visualizzare TP/FP/FN/TN
 - **Curve ROC + AUC** per ciascuna classe (`it`, `en`, `de`)
@@ -97,11 +97,11 @@ Gli script/utility inclusi:
 
 ---
 
-## 🙏 Crediti
+## Crediti
 - Docenti e materiali del **Master in AI Development** (Modulo A.I. applicata per Sviluppatori).  
 - Dataset `museo_descrizioni.csv`.  
 - Librerie open‑source citate sopra.
 
-## 📄 Licenza
+## Licenza
 Questo progetto è rilasciato con licenza GNU GPL v3.
 Vedi il file LICENSE per i dettagli. 
