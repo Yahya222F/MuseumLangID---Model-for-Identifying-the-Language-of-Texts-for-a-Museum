@@ -1,28 +1,19 @@
-# MuseumLangID — Identificazione automatica della lingua di testi museali
-
+![image](https://github.com/user-attachments/assets/1b701899-f179-4f08-a4cf-d50720bc827b)
 > **Progetto del Master in AI Development — Modulo “A.I. applicata per Sviluppatori”**  
 > **Studente:** Giacomo Latini
+# MuseumLangID — Identificazione automatica della lingua di testi museali
 
-Questo repository contiene un progetto di **Language Identification** per classificare le descrizioni di opere e manufatti museali nella loro lingua di riferimento. Il modello utilizza una pipeline **TF‑IDF + Multinomial Naive Bayes** per distinguere tra **italiano (`it`)**, **inglese (`en`)** e **tedesco (`de`)**.
-
----
-
-## 🧭 Obiettivi
-- Automatizzare l’**identificazione della lingua** di testi brevi (descrizioni museali).  
-- Produrre un **baseline forte** e facilmente deployabile con Scikit‑learn.  
-- Fornire una pipeline **riproducibile e spiegabile**, con metriche e grafici (matrici di confusione, ROC/AUC).
+Questo repository contiene un progetto di **Language Identification** per classificare le descrizioni di opere e manufatti museali nella loro lingua di riferimento. Il modello utilizza **TF‑IDF** e **Multinomial Naive Bayes** per distinguere tra **italiano (`it`)**, **inglese (`en`)** e **tedesco (`de`)**.
 
 ---
 
-## 📦 Dataset
-- **Nome file:** `museo_descrizioni.csv`  
+## Dataset
+- **Nome file:** `[museo_descrizioni.csv](https://raw.githubusercontent.com/Profession-AI/progetti-ml/refs/heads/main/Modello%20per%20l'identificazione%20della%20lingua%20dei%20testi%20di%20un%20museo/museo_descrizioni.csv`  
 - **Colonne principali:**
   - `Testo` → descrizione testuale (feature)
   - `Codice Lingua` → etichetta (`it`, `en`, `de`)
-- **Origine:** il notebook carica il CSV da un percorso remoto (`BASE_PATH`) ospitato su GitHub (raw).  
-  Se preferisci usare un file locale, imposta `BASE_PATH = ""` e assicurati che `museo_descrizioni.csv` sia nella stessa cartella del notebook.
 
-> **Nota:** il dataset è trattato come **multi‑classe (3 classi)**. Il notebook mostra anche distribuzioni e controlli di qualità (schema colonne, valori nulli, etichette uniche).
+> **Nota:** il dataset è trattato come **multi‑classe (3 classi)**
 
 ---
 
@@ -84,17 +75,11 @@ python -m venv .venv
 source .venv/bin/activate
 
 # 3) Installa le dipendenze
-pip install -r requirements.txt
-# oppure:
 pip install scikit-learn pandas numpy matplotlib seaborn
 ```
 
 ### Esecuzione del notebook
-Apri `progetto_museum_langid.ipynb` (o il nome del notebook) con Jupyter/VS Code e riesegui tutte le celle.  
-Se usi un CSV locale, imposta:
-```python
-BASE_PATH = ""  # e metti museo_descrizioni.csv accanto al notebook
-```
+Apri `nome_notebook.ipynb` con Jupyter/VS Code e riesegui tutte le celle.  
 
 ---
 
@@ -112,65 +97,11 @@ Gli script/utility inclusi:
 
 ---
 
-## ✅ Scelte progettuali
-- **TF‑IDF + MultinomialNB**: baseline classica, veloce ed efficace per testi brevi e vocabolari distintivi tra lingue.
-- **Preprocessing minimale**: manteniamo i tratti discriminanti delle lingue (accenti, stopword) evitando stem/lemmatizzazione.
-- **Fit su train, transform su test**: corretta separazione per evitare leakage.
-- **Seed fisso**: riproducibilità degli split.
-
----
-
-## ⚠️ Note & miglioramenti suggeriti
-- **Ordinamento parametri in `classification_report`**: nel notebook è chiamato come `classification_report(y_pred, y)`, ma la firma corretta è `classification_report(y_true, y_pred)`. Consigliato correggere per evitare metriche invertite.
-- **Docstring `plot_confusion_matrix`**: menziona “modello K‑NN”, ma il modello usato è **MultinomialNB** → aggiornare la docstring.
-- **Memoria TF‑IDF**: il codice fa `toarray()`. Su dataset grandi può saturare la RAM. Meglio usare la matrice **sparsa** direttamente (scikit‑learn lo supporta nativamente).
-- **Caratteri e n‑grammi**: per Language ID spesso performano meglio **n‑grammi di caratteri** (`analyzer='char'`, `ngram_range=(3,5)`), da valutare come upgrade.
-- **Stopword/diacritici**: in Language ID spesso è utile **non** rimuovere stopword e **preservare accenti**; già coerente con l’approccio corrente.
-- **Valutazione**: aggiungere **cross‑validation**, **stratificazione** nello split (`stratify=y`) e report **macro‑averaged** completo.
-- **Packaging**: possibile migrazione verso una **`Pipeline` scikit‑learn** (`Pipeline([('tfidf', TfidfVectorizer(...)), ('clf', MultinomialNB())])`) con salvataggio di modello e vettorizzatore (`joblib`).
-
----
-
-## 🗂️ Struttura consigliata del repo
-```
-.
-├─ notebooks/
-│  └─ progetto_museum_langid.ipynb
-├─ data/              # (opzionale) dataset locale non versionato
-├─ src/               # (opzionale) funzioni riusabili
-├─ reports/           # (opzionale) grafici ed export metriche
-├─ requirements.txt
-└─ README.md
-```
-
-Esempio `requirements.txt` minimale:
-```
-scikit-learn>=1.2
-pandas>=1.5
-numpy>=1.23
-matplotlib>=3.6
-seaborn>=0.12
-```
-
----
-
-## 📌 Esempio d’uso (inferenza rapida)
-```python
-# addestramento (schematico)
-X_train_vec, vec = tfidfvectorizer(X_train)
-clf = MultinomialNB().fit(X_train_vec, y_train)
-
-# inferenza su nuovo testo
-X_new_vec = vec.transform(["Descrizione breve dell'opera in italiano."])
-pred = clf.predict(X_new_vec)   # -> ['it']
-```
-
----
-
-## 📄 Licenza
-Scegli e aggiungi una licenza (es. MIT).
-
 ## 🙏 Crediti
 - Docenti e materiali del **Master in AI Development** (Modulo A.I. applicata per Sviluppatori).  
-- Dataset `museo_descrizioni.csv` (sorgente GitHub raw, referenziato nel notebook).  
+- Dataset `museo_descrizioni.csv`.  
 - Librerie open‑source citate sopra.
+
+## 📄 Licenza
+Questo progetto è rilasciato con licenza GNU GPL v3.
+Vedi il file LICENSE per i dettagli. 
